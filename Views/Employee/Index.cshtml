@@ -1,0 +1,113 @@
+﻿@model IEnumerable<InventoryBeginners.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    Pager pager = new Pager();
+    int pageNum = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNum = pager.CurrentPage;
+    }
+
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<partial name="_pager" model="@pager"/>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Empname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empsurname)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Job)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Level)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Photo)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Empname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empsurname)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Job)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level)
+            </td>
+            <td>
+                <div class="btn-group">
+                    <a asp-action="Edit" asp-route-id="@item.Id">
+                        <span class="btn btn-sm btn-outline-primary">
+                            <i class="fa fa-edit" aria-hidden="true"></i>
+                        </span>
+                    </a>
+
+                    <a asp-action="Details" asp-route-id="@item.Id">
+                        <span class="btn btn-sm btn-outline-dark">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </span>
+                    </a>
+
+                    <a asp-action="Delete" asp-route-id="@item.Id">
+                        <span class="btn btn-sm btn-outline-danger">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </span>
+                    </a>
+
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<partial name="_pager" model="@pager" />

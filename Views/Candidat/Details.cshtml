@@ -1,0 +1,88 @@
+﻿@model InventoryBeginners.Models.Candidat
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<h1>Unit Details</h1>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div>
+    <hr />
+    <div><img src="@Model.CoverImageUrl" /></div>
+    <dl class="row">
+       
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Level)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Level)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DimplomaTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DimplomaTitle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.YearsExperience)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.YearsExperience)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Experience)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Experience)
+        </dd>
+
+    </dl>
+
+    <div class="row">
+        <div class="col-md-4">
+            <a class="btn btn-outline-primary" href="@Model.BookPdfUrl" target="_blank">
+                Read now
+            </a>
+        </div>
+    </div>
+
+
+
+</div>
+<div class="btn-group">
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.CandidatId">Edit</a>
+    <a class="btn btn-secondary" asp-action="index"
+       asp-route-pg="@TempData["CurrentPage"]">Back</a>
+</div>
